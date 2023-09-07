@@ -1,3 +1,4 @@
-# Curso Go - Projetos
- Olá meus nobres! Tudo em ordem com vocês ?! Bom, eu espero que sim.
- Eu estou estudando Go, e como forma de praticar eu estou re-criando os projetos das aulas, e estou comentando os mesmos da melhor forma que eu posso, sendo claro e objetivo.
+<h1 align="center">Learning Golang</h1>
+<h4 align="center">Repository dedicated to my progress with studies</h4>
+
+<h5 align="center">SRChow@2020

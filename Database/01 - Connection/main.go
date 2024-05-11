@@ -9,15 +9,14 @@ import (
 )
 
 /*
-Para se conectar ao mysql é necessário baixar a lib "github.com/go-sql-driver/mysql", (\n)
-por mais que a golang por padrão já tenha a opção de sql... (\n)
-banco de dados e etc... ela não vem com o driver por padrão.
-Quando importamos o driver é necessário por um _(underline) antes. (\n)
-Pôs esse aquivo em sí não utilizará/instanciará a biblioteca.
-E exatamente por esse motivo que não instanciase o mysql em sí no "sql.Open()", (\n)
-nós informamos uma string com o nome do driver sql.
+To connect to MySQL, it is necessary to download the library "github.com/go-sql-driver/mysql",
+even though Golang already has the option for SQL, databases, etc., it does not come with the driver by default.
+When we import the driver, we need to put an _(underscore) before it,
+because this file itself does not use/instantiate the library.
+And exactly for this reason, we don't instantiate MySQL itself in "sql.Open()",
+we provide a string with the name of the SQL driver.
 
-A URI do mysql deve ser assim: "usuário:senha@/database".
+The MySQL URI should be like this: "user:password@/database".
 
 */
 
@@ -25,16 +24,16 @@ func main() {
 	database, err := sql.Open("mysql", "root:toortoor@/golang?charset=utf8")
 
 	if err != nil {
-		log.Fatal("Ocorreu um erro:", err)
+		log.Fatal("An error occurred:", err)
 	}
 
 	defer database.Close()
 
 	if err = database.Ping(); err != nil {
-		log.Fatal("Não consegui me conectar ao banco de dados!", err)
+		log.Fatal("Couldn't connect to the database!", err)
 	}
 
-	fmt.Println("Me conectei ao banco de dados!")
+	fmt.Println("Connected to the database!")
 
 	sql, err := database.Query("select * from users")
 

@@ -2,33 +2,33 @@ package main
 
 import "fmt"
 
-// Utilizando if, else if e else
+// Using if, else if, and else
 
 func main() {
 	/*
-		var idade int
+		var age int
 
-		fmt.Print("Digite sua idade: ")
-		fmt.Scanf("%d", &idade)
+		fmt.Print("Enter your age: ")
+		fmt.Scanf("%d", &age)
 
-		if idade >= 18 {
-			fmt.Println("\nVocê é maior de idade")
+		if age >= 18 {
+			fmt.Println("\nYou are an adult")
 		} else {
-			fmt.Println("\nVocê e menor de idade")
+			fmt.Println("\nYou are a minor")
 		}
 	*/
 
 	var num int
 
-	fmt.Print("Digite um numero: ")
-	fmt.Scanf("%d", &num) // '%d' informa para o Scanf que o que estamos estaneando é um inteiro.
+	fmt.Print("Enter a number: ")
+	fmt.Scanf("%d", &num) // '%d' tells Scanf that we are scanning an integer.
 
 	if num < 0 {
-		fmt.Println("Este é um valor negativo.")
-	} else if num >= 0 && num <= 9 { // '&&' seria a mesma coisa que 'and' no Python.
-		fmt.Println("Este é um valor positivo de apenas de um dígito.")
+		fmt.Println("This is a negative value.")
+	} else if num >= 0 && num <= 9 { // '&&' is equivalent to 'and' in Python.
+		fmt.Println("This is a positive value with only one digit.")
 	} else {
-		fmt.Println("Este é um valor positivo e contém mais de um dígito.")
+		fmt.Println("This is a positive value with more than one digit.")
 	}
 
 }

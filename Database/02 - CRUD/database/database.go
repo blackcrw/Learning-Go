@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	_ "github.com/go-sql-driver/mysql" // Driver do MySql
+	_ "github.com/go-sql-driver/mysql" // MySql Driver
 )
 
 type userJson struct {
@@ -15,7 +15,7 @@ type userJson struct {
 	Email string `json:"email"`
 }
 
-// Connect  :: Função de conexão ao Banco de Dados.
+// Connect  :: Function to connect to the Database.
 func Connect() (*sql.DB, error) {
 	database, err := sql.Open("mysql", "root:toortoor@/golang?charset=utf8")
 
@@ -30,23 +30,23 @@ func Connect() (*sql.DB, error) {
 	return database, nil
 }
 
-// Disconnect :: Função que irá desconectar/fechar conexão com o banco de dados.
+// Disconnect :: Function to disconnect/close the database connection.
 func Disconnect(database *sql.DB) {
 	database.Close()
 }
 
 /* Create ::
-Aqui eu poderia passar como paramêtro da função o request completo, mas não passarei pôs não á necessidade (\n)
-Visto que o que apenas queremos é o corpo da requisição (Body).
+Here I could pass the complete request as a function parameter, but I won't because there is no need (\n)
+since we only want the request body.
 */
 
-// Create :: Função de criação de usuários no banco de dados, ela recebe o connect via paramêtro.
+// Create :: Function to create users in the database, it receives the database connection as a parameter.
 func Create(database *sql.DB, response http.ResponseWriter, body []byte) (int64, error) {
 	var user userJson
 
 	if err := json.Unmarshal(body, &user); err != nil {
 		log.Println(err)
-		response.Write([]byte("Erro ao converter o usuário para Struct"))
+		response.Write([]byte("Error converting user to Struct"))
 		return 0, err
 	}
 
@@ -54,7 +54,7 @@ func Create(database *sql.DB, response http.ResponseWriter, body []byte) (int64,
 
 	if err != nil {
 		log.Println(err)
-		response.Write([]byte("Ocorreu um erro na hora de preparar a query."))
+		response.Write([]byte("Error preparing query."))
 		return 0, err
 	}
 
@@ -65,7 +65,7 @@ func Create(database *sql.DB, response http.ResponseWriter, body []byte) (int64,
 
 	if err != nil {
 		log.Println(err)
-		response.Write([]byte("Ocorreu um erro ao inserir este usuário no banco de dados!"))
+		response.Write([]byte("Error inserting user into the database!"))
 		return 0, err
 	}
 
@@ -73,20 +73,20 @@ func Create(database *sql.DB, response http.ResponseWriter, body []byte) (int64,
 
 	if err != nil {
 		log.Println(err)
-		response.Write([]byte("Ocorreu um erro ao tentar pegar o ID."))
+		response.Write([]byte("Error getting ID."))
 		return 0, err
 	}
 
 	return id, nil
 }
 
-// Delete :: Função para apagar os usuários por ID.
+// Delete :: Function to delete users by ID.
 func Delete(database *sql.DB, response http.ResponseWriter, ID uint64) error {
 	statement, err := database.Prepare("delete from users where id = ?")
 
 	if err != nil {
 		log.Println(err)
-		response.Write([]byte("Erro ao deletar usuário por ID"))
+		response.Write([]byte("Error deleting user by ID"))
 		return err
 	}
 
@@ -95,14 +95,14 @@ func Delete(database *sql.DB, response http.ResponseWriter, ID uint64) error {
 
 	if _, err := statement.Exec(ID); err != nil {
 		log.Println(err)
-		response.Write([]byte("Erro ao deletar usuário!"))
+		response.Write([]byte("Error deleting user!"))
 		return err
 	}
 
 	return nil
 }
 
-// Get :: Está função serve para puxarmos os usuários por ID, e imprimir na tela.
+// Get :: This function is used to fetch users by ID and print them on the screen.
 func Get(database *sql.DB, response http.ResponseWriter, ID uint64) error {
 	var user userJson
 
@@ -110,7 +110,7 @@ func Get(database *sql.DB, response http.ResponseWriter, ID uint64) error {
 
 	if err != nil {
 		log.Println(err)
-		response.Write([]byte("Erro ao buscar usuário por ID"))
+		response.Write([]byte("Error fetching user by ID"))
 		return err
 	}
 
@@ -120,21 +120,21 @@ func Get(database *sql.DB, response http.ResponseWriter, ID uint64) error {
 	if query.Next() {
 		if err := query.Scan(&user.ID, &user.Name, &user.Email); err != nil {
 			log.Println(err)
-			response.Write([]byte("Erro ao escanear usuários."))
+			response.Write([]byte("Error scanning users."))
 			return err
 		}
 	}
 
-	if err := json.NewEncoder(response).Encode(user); err != nil { // Aqui é onde o retorno da request é mostrado. E caso haja algum erro ele é retornado.
+	if err := json.NewEncoder(response).Encode(user); err != nil { // This is where the request response is shown. And if there is an error, it is returned.
 		log.Println(err)
-		response.Write([]byte("Erro ao converter usuários para Json"))
+		response.Write([]byte("Error converting users to Json"))
 		return err
 	}
 
 	return nil
 }
 
-// GetAll :: Está função serve para puxarmos todos os "usuários" do banco de dados e imprimir na tela.
+// GetAll :: This function is used to fetch all "users" from the database and print them on the screen.
 func GetAll(database *sql.DB, response http.ResponseWriter) error {
 	var users []userJson
 
@@ -142,7 +142,7 @@ func GetAll(database *sql.DB, response http.ResponseWriter) error {
 
 	if err != nil {
 		log.Println(err)
-		response.Write([]byte("Erro ao fazer a query"))
+		response.Write([]byte("Error executing query"))
 		return err
 	}
 
@@ -154,36 +154,36 @@ func GetAll(database *sql.DB, response http.ResponseWriter) error {
 
 		if err := query.Scan(&user.ID, &user.Name, &user.Email); err != nil {
 			log.Println(err)
-			response.Write([]byte("Erro ao escanear usuários."))
+			response.Write([]byte("Error scanning users."))
 			return err
 		}
 
 		users = append(users, user)
 	}
 
-	if err := json.NewEncoder(response).Encode(users); err != nil { // Aqui é onde o retorno da request é mostrado. E caso haja algum erro ele é retornado.
+	if err := json.NewEncoder(response).Encode(users); err != nil { // This is where the request response is shown. And if there is an error, it is returned.
 		log.Println(err)
-		response.Write([]byte("Erro ao converter usuários para Json"))
+		response.Write([]byte("Error converting users to Json"))
 		return err
 	}
 
 	return nil
 }
 
-// Update :: Está função realiza um update dos dados dos usuários no banco de dados; nome e email.
+// Update :: This function updates user data in the database; name and email.
 func Update(database *sql.DB, response http.ResponseWriter, body []byte, ID uint64) error {
 	var user userJson
 
 	if err := json.Unmarshal(body, &user); err != nil {
 		log.Println(err)
-		response.Write([]byte("Erro ao converter usuários para Json"))
+		response.Write([]byte("Error converting users to Json"))
 		return err
 	}
 
 	statement, err := database.Prepare("update users set name = ?, email = ? where id = ?")
 	if err != nil {
 		log.Println(err)
-		response.Write([]byte("Erro ao preparar query"))
+		response.Write([]byte("Error preparing query"))
 		return err
 	}
 
@@ -192,7 +192,7 @@ func Update(database *sql.DB, response http.ResponseWriter, body []byte, ID uint
 
 	if _, err := statement.Exec(user.Name, user.Email, ID); err != nil {
 		log.Println(err)
-		response.Write([]byte("Erro ao realizar update"))
+		response.Write([]byte("Error performing update"))
 		return err
 	}
 

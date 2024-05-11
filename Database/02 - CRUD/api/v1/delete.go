@@ -8,21 +8,21 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// DeleteHTTP :: Está função é chamada quando ah um request no "/api/v1/user/{ID}" (Método DELETE).
+// DeleteHTTP :: This function is called when there is a request to "/api/v1/user/{ID}" (DELETE method).
 func DeleteHTTP(response http.ResponseWriter, request *http.Request) {
-	params := mux.Vars(request) // Aqui peguei os paramêtros da request
+	params := mux.Vars(request) // Here I got the parameters from the request
 
-	paramID, err := strconv.ParseUint(params["id"], 10, 32) // Como o ID que vem via paramêtro via URL é string, precisamos converte-lo para int.
+	paramID, err := strconv.ParseUint(params["id"], 10, 32) // Since the ID that comes as a parameter in the URL is a string, we need to convert it to an int.
 
 	if err != nil {
-		response.Write([]byte("Erro ao converter paramêtro ID!"))
+		response.Write([]byte("Error converting ID parameter!"))
 		return
 	}
 
 	db, err := database.Connect()
 
 	if err != nil {
-		response.Write([]byte("Erro ao conectar ao banco de dados!"))
+		response.Write([]byte("Error connecting to the database!"))
 		return
 	}
 

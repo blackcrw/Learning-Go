@@ -5,5 +5,5 @@ import "fmt"
 func main() {
 	const name string = "Matheus"
 
-	fmt.Printf("meu nome é: %v", name)
+	fmt.Printf("my name is: %v", name)
 }

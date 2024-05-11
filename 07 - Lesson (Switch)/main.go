@@ -2,52 +2,52 @@ package main
 
 import "fmt"
 
-// Utilizando switch e case
+// Using switch and case
 
 func main() {
-	var mes int
+	var month int
 
-	fmt.Print("Digite o numero de um mês: ")
-	fmt.Scanf("%d", &mes)
+	fmt.Print("Enter the number of a month: ")
+	fmt.Scanf("%d", &month)
 
-	switch mes {
+	switch month {
 	case 1:
-		fmt.Println("\nEste é o mês de Janeiro")
+		fmt.Println("\nThis is January")
 	case 2:
-		fmt.Println("\nEste é o mês de Fevereiro")
+		fmt.Println("\nThis is February")
 	case 3:
-		fmt.Println("\nEste é o mês de Março")
+		fmt.Println("\nThis is March")
 	case 4:
-		fmt.Println("\nEste é o mês de Abril")
+		fmt.Println("\nThis is April")
 	case 5:
-		fmt.Println("\nEste é o mês de Maio")
+		fmt.Println("\nThis is May")
 	case 6:
-		fmt.Println("\nEste é o mês de Junho")
+		fmt.Println("\nThis is June")
 	case 7:
-		fmt.Println("\nEste é o mês de Julho")
+		fmt.Println("\nThis is July")
 	case 8:
-		fmt.Println("\nEste é o mês de Agosto")
+		fmt.Println("\nThis is August")
 	case 9:
-		fmt.Println("\nEste é o mês de Setembro")
+		fmt.Println("\nThis is September")
 	case 10:
-		fmt.Println("\nEste é o mês de Outubro")
+		fmt.Println("\nThis is October")
 	case 11:
-		fmt.Println("\nEste é o mês de Novembro")
+		fmt.Println("\nThis is November")
 	case 12:
-		fmt.Println("\nEste é o mês de Dezembro")
+		fmt.Println("\nThis is December")
 	default:
-		fmt.Println("\nEste mês é inválido")
+		fmt.Println("\nThis month is invalid")
 	}
 
-	switch mes {
+	switch month {
 	case 1, 2, 3:
-		fmt.Println("Primeiro trimestre")
+		fmt.Println("First quarter")
 	case 4, 5, 6:
-		fmt.Println("Segundo trimestre")
+		fmt.Println("Second quarter")
 	case 7, 8, 9:
-		fmt.Println("Terceiro trimestre")
+		fmt.Println("Third quarter")
 	case 10, 11, 12:
-		fmt.Println("Quarto trimestre")
+		fmt.Println("Fourth quarter")
 	}
 
 }

@@ -2,19 +2,19 @@ package main
 
 import "fmt"
 
-// Ponteiros
+// Pointers
 
 func main() {
-	var saldo float64
+	var balance float64
 
-	fmt.Print("Digite seu saldo: ")
-	fmt.Scanf("%f", &saldo)
+	fmt.Print("Enter your balance: ")
+	fmt.Scanf("%f", &balance)
 
-	calcRend(&saldo) // Aqui eu não estou informando a variável, e sim o ponteiro dela na memória.
+	calcInterest(&balance) // Here I'm not passing the variable, but its pointer in memory.
 
-	fmt.Printf("Seu saldo com rendimento é : R$ %.2f\n", saldo)
+	fmt.Printf("Your balance with interest is: $ %.2f\n", balance)
 }
 
-func calcRend(saldo *float64) {
-	*saldo += *saldo * 0.02 // Aqui não estou alterando o valor da variável, e sim o valor dela na memória.
+func calcInterest(balance *float64) {
+	*balance += *balance * 0.02 // Here I'm not changing the value of the variable, but the value in memory.
 }

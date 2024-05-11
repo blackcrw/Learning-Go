@@ -3,23 +3,23 @@ package main
 import "fmt"
 
 func main() {
-	var nome string = "Matheus"
-	var idade int = 16
+	var name string = "Matheus"
+	var age int = 16
 
-	// var nome string
-	// var idade int
+	// var name string
+	// var age int
 
 	//  var (
-	//      nome = "Matheus"
-	//      idade = 16
+	//      name = "Matheus"
+	//      age = 16
 	//  )
 
-	// nome := "Matheus"
-	// idade := 16
+	// name := "Matheus"
+	// age := 16
 
-	// nome, idade := "Matheus", 16
+	// name, age := "Matheus", 16
 
-	fmt.Println("Meu nome é", nome, "e tenho", idade, "anos")
+	fmt.Println("My name is", name, "and I am", age, "years old")
 
-	// fmt.Printf("Meu nome é %v e tenho %v anos", nome, idade)
+	// fmt.Printf("My name is %v and I am %v years old", name, age)
 }

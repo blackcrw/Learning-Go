@@ -48,7 +48,7 @@ func main() {
 	defer req.Body.Close()
 
 	if err != nil {
-		fmt.Printf("Ocorreu um erro: %s\n", err)
+		fmt.Printf("An error occurred: %s\n", err)
 		return
 	}
 
@@ -58,12 +58,12 @@ func main() {
 		log.Println(err)
 	}
 
-	fmt.Println("Nome       : ", jsn.Name)
+	fmt.Println("Name       : ", jsn.Name)
 	fmt.Println("Login      : ", jsn.Login)
 	fmt.Println("ID         : ", jsn.ID)
 	fmt.Println("Avatar URL : ", jsn.AvatarURL)
-	fmt.Println("URL Perfil : ", jsn.HTMLURL)
-	fmt.Println("Compania   : ", jsn.Company)
+	fmt.Println("Profile URL: ", jsn.HTMLURL)
+	fmt.Println("Company    : ", jsn.Company)
 	fmt.Println("Blog       : ", jsn.Blog)
 	fmt.Println("Bio        : ", jsn.Bio)
 }

@@ -3,29 +3,29 @@ package main
 import "fmt"
 
 // Recover
-// Tratamento de erros.
+// Error handling.
 
 func main() {
 	var num int
 
-	fmt.Println("Seja bem vindo!")
-	// Aqui eu crio uma Função Anonima (Closure)
+	fmt.Println("Welcome!")
+	// Here I create an Anonymous Function (Closure)
 	defer func() {
-		// Eu crio uma variável chamada 'ex' e coloco o valor que o recover tiver dentro dela. Caso não seja nil ele executa.
+		// I create a variable called 'ex' and assign the value that recover returns to it. If it's not nil, it executes.
 		if ex := recover(); ex != nil {
-			fmt.Printf("\nOcorreu um erro: %s\n", ex)
+			fmt.Printf("\nAn error occurred: %s\n", ex)
 		} else {
-			fmt.Println("Nenhum erro ocorreu!")
+			fmt.Println("No errors occurred!")
 		}
 	}()
 
-	fmt.Print("Digite um numero maior que 5: ")
+	fmt.Print("Enter a number greater than 5: ")
 	fmt.Scanf("%d", &num)
 
 	if num <= 5 {
-		panic("Número inválido!") // Aqui eu crio a mensagem de erro que parecerá quando o recover for executado
+		panic("Invalid number!") // Here I create the error message that will appear when recover is executed
 	} else {
-		fmt.Println("Belo numero!")
+		fmt.Println("Nice number!")
 	}
 
 }

@@ -2,15 +2,15 @@ package main
 
 import "fmt"
 
-// defer é parecido com finally do Java.
+// defer is similar to Java's finally.
 
 func main() {
-	fmt.Println("Abrindo conexão com banco de dados.")
-	// Essa linha de código será jogada para o final desse processo. Ou seja: Só será executada no final da função.
-	defer fmt.Println("Fechando a conexão com banco de dados.")
+	fmt.Println("Opening database connection.")
+	// This line of code will be deferred to the end of this process. In other words, it will only be executed at the end of the function.
+	defer fmt.Println("Closing database connection.")
 	execQuery()
 }
 
 func execQuery() {
-	fmt.Println("Executando busca no banco de dados!")
+	fmt.Println("Executing database query!")
 }

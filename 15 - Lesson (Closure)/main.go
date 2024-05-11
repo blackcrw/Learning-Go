@@ -2,24 +2,24 @@ package main
 
 import "fmt"
 
-// Closures, no javascript isso seria similar uma Arrow Function e no python lambda.
+// Closures, in JavaScript this would be similar to an Arrow Function, and in Python it would be a lambda.
 
 func main() {
 	var num1, num2 int
 	var operation string
-	var methodOperation func(n1 int, n2 int) int // Aqui eu instâncio uma Closure.
+	var methodOperation func(n1 int, n2 int) int // Here I declare a Closure.
 
-	fmt.Print("Valor 1: ")
+	fmt.Print("Value 1: ")
 	fmt.Scanf("%d", &num1)
 
-	fmt.Print("Valor 2: ")
+	fmt.Print("Value 2: ")
 	fmt.Scanf("%d", &num2)
 
-	fmt.Print("Tipo de operação (+, -, (x, *), /): ")
+	fmt.Print("Operation type (+, -, (x, *), /): ")
 	fmt.Scanf("%s", &operation)
 
 	if operation == "+" {
-		methodOperation = func(n1 int, n2 int) int { // Aqui eu crio uma variável que é capaz de guardar um ponteiro/função nela.
+		methodOperation = func(n1 int, n2 int) int { // Here I create a variable that can store a pointer/function.
 			return n1 + n2
 		}
 	} else if operation == "-" {
@@ -35,10 +35,10 @@ func main() {
 			return n1 / n2
 		}
 	} else {
-		fmt.Printf("Operação '%s' inválida.\n", operation)
+		fmt.Printf("Invalid operation '%s'.\n", operation)
 	}
 
-	ResultCalc := methodOperation(num1, num2) // Aqui eu chamo o methodo operação, no caso methodOperation.
+	ResultCalc := methodOperation(num1, num2) // Here I call the operation method, in this case methodOperation.
 
 	fmt.Printf("—————————\n%d %s %d = %d\n", num1, operation, num2, ResultCalc)
 }

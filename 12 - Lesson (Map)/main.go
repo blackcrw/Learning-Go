@@ -14,17 +14,17 @@ func main() {
 	for courses != "q" {
 		var workload int
 
-		fmt.Print("Digite um curso ou digite 'q' para sair: ")
+		fmt.Print("Enter a course or type 'q' to quit: ")
 		scanner.Scan()
 		courses = scanner.Text()
 
 		if courses != "q" {
-			fmt.Print("Digite a carga horária do curso: ")
+			fmt.Print("Enter the course workload: ")
 			fmt.Scanf("%d", &workload)
 			mapCourses[courses] = workload
 		}
 	}
-	fmt.Println("Cursos Registrados: ")
+	fmt.Println("Registered Courses: ")
 
 	for nameCourse, workload := range mapCourses {
 		fmt.Printf(" — %s: %dh \n", nameCourse, workload)

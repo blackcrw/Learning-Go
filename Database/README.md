@@ -1,5 +1,5 @@
 # Database - CRUD
- Aqui está duas print's que mostram a api em perfeito funcionamento.
+Here are two screenshots showing the API in perfect working condition.
 
 ## Postman:
 ![postman](screenshot-postman.png)

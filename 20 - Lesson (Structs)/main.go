@@ -18,7 +18,7 @@ func (car *Car) SpeedUp() error {
 		car.velocity += 5
 		return nil
 	} else {
-		return errors.New("a velocidade do carro já está no seu limite") // Criando uma mensagem de erro.
+		return errors.New("the car's speed is already at its limit") // Creating an error message.
 	}
 }
 
@@ -27,7 +27,7 @@ func (car *Car) Brake() error {
 		car.velocity -= 5
 		return nil
 	} else {
-		return errors.New("o carro já está parado")
+		return errors.New("the car is already stopped")
 	}
 }
 
@@ -36,10 +36,10 @@ func main() {
 	option := 0
 
 	for option != 3 {
-		fmt.Println("O que desejas fazer ?!")
-		fmt.Println("1 - Acelerar")
-		fmt.Println("2 - Freiar")
-		fmt.Println("3 - Sair")
+		fmt.Println("What do you want to do?")
+		fmt.Println("1 - Speed up")
+		fmt.Println("2 - Brake")
+		fmt.Println("3 - Exit")
 		fmt.Scanf("%d", &option)
 		var err error = nil
 
@@ -51,9 +51,9 @@ func main() {
 		}
 
 		if err != nil {
-			fmt.Printf("** Não foi possível executar essa ação: %s ** \n", err)
+			fmt.Printf("** Unable to perform this action: %s ** \n", err)
 		} else if option != 3 {
-			fmt.Printf("O carro %s da marca %s está a %.2f KM/h \n", car.model, car.brand, car.velocity)
+			fmt.Printf("The %s car from %s is going at %.2f KM/h \n", car.model, car.brand, car.velocity)
 		}
 	}
 }

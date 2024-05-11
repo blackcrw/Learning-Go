@@ -1,4 +1,4 @@
-module "github.com/blkzy/Curso-Go-Projetos/Database/1 - Conectando"
+module "github.com/blackcrw/learning-go/Database/01 - Connection"
 
 go 1.15
 

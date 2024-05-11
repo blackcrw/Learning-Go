@@ -6,22 +6,22 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/blkzy/Curso-Go-Projetos/Database/2-CRUD/database"
+	"github.com/blakcrw/learning-go/Database/02 - CRUD/database"
 )
 
-// CreateHTTP :: Está função é chamada quando há uma request no "/api/v1/user" (Método POST).
+// CreateHTTP :: This function is called when there is a request to "/api/v1/user" (POST method).
 func CreateHTTP(response http.ResponseWriter, request *http.Request) {
 	body, err := ioutil.ReadAll(request.Body)
 
 	if err != nil {
 		log.Println(err)
-		response.Write([]byte("Falha ao ler o corpo da requisição!"))
+		response.Write([]byte("Failed to read request body!"))
 		return
 	}
 
 	db, err := database.Connect()
 	if err != nil {
-		response.Write([]byte("Erro ao conectar no banco de dados!"))
+		response.Write([]byte("Error connecting to the database!"))
 		return
 	}
 
@@ -31,5 +31,5 @@ func CreateHTTP(response http.ResponseWriter, request *http.Request) {
 	}
 
 	response.WriteHeader(http.StatusCreated)
-	response.Write([]byte(fmt.Sprintf("Usuário criado com sucesso! ID: %d", idUser)))
+	response.Write([]byte(fmt.Sprintf("User created successfully! ID: %d", idUser)))
 }

@@ -3,21 +3,21 @@ package main
 import "fmt"
 
 /*
-	Na GoLang não temos um while explicito.
-	O while foi substituido pelo próprio for! Ou seja: O for também faz a função de um While.
-	Abaixo deixarei um exemplo de uso do for para while.
+	In GoLang, we don't have an explicit while loop.
+	The while loop has been replaced by the for loop itself! In other words, the for loop also serves as a while loop.
+	Below is an example of using the for loop as a while loop.
 */
 
 func main() {
 	/*
 		i := 0
 		for true {
-			fmt.Printf("Contagem: %d\n", i)
+			fmt.Printf("Count: %d\n", i)
 			i++
 		}
 	*/
 
 	for i := 0; true; i++ {
-		fmt.Printf("Contagem: %d\n", i)
+		fmt.Printf("Count: %d\n", i)
 	}
 }

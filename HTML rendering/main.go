@@ -18,7 +18,7 @@ func main() {
 	templates = template.Must(template.ParseGlob("Template/*.html"))
 
 	http.HandleFunc("/index", func(response http.ResponseWriter, request *http.Request) {
-		infos := users{Name: "Blkz", Email: "teste@gmail.com"}
+		infos := users{Name: "blackcrw", Email: "teste@gmail.com"}
 		templates.ExecuteTemplate(response, "index.html", infos)
 	})
 

@@ -2,54 +2,54 @@ package main
 
 import "fmt"
 
-// Função
+// Function
 
 func main() {
 	var num1 int
 	var num2 int
 	var operation string
 
-	fmt.Print("Valor 1: ")
+	fmt.Print("Value 1: ")
 	fmt.Scanf("%d", &num1)
 
-	fmt.Print("Valor 2: ")
+	fmt.Print("Value 2: ")
 	fmt.Scanf("%d", &num2)
 
-	fmt.Print("Tipo de operação (+, -, (x, *), /): ")
+	fmt.Print("Operation type (+, -, (x, *), /): ")
 	fmt.Scanf("%s", &operation)
 
 	if operation == "+" {
 		add(num1, num2)
 	} else if operation == "-" {
 		// resultCalc := subtract(num1, num2)
-		// fmt.Printf("Resultado: %d - %d = %d\n", num1, num2, resultCalc)
+		// fmt.Printf("Result: %d - %d = %d\n", num1, num2, resultCalc)
 
-		fmt.Printf("Resultado: %d - %d = %d\n", num1, num2, subtract(num1, num2))
+		fmt.Printf("Result: %d - %d = %d\n", num1, num2, subtract(num1, num2))
 	} else if operation == "*" || operation == "x" {
-		fmt.Printf("Resultado: %d x %d = %d\n", num1, num2, multiply(num1, num2))
+		fmt.Printf("Result: %d x %d = %d\n", num1, num2, multiply(num1, num2))
 	} else if operation == "/" {
 		resultCalc, resultRest := division(num1, num2)
-		fmt.Printf("Resultado: %d / %d = %d; Resto: %d\n", num1, num2, resultCalc, resultRest)
+		fmt.Printf("Result: %d / %d = %d; Remainder: %d\n", num1, num2, resultCalc, resultRest)
 	} else {
-		fmt.Println("Operação errada!")
+		fmt.Println("Wrong operation!")
 	}
 
 }
 
-func add(n1 int, n2 int) { // Isto é uma função, mas está função não retorna nenhum valor. Ela apenas printa.
-	fmt.Printf("Resultado: %d + %d = %d\n", n1, n2, n1+n2)
+func add(n1 int, n2 int) { // This is a function, but this function does not return any value. It only prints.
+	fmt.Printf("Result: %d + %d = %d\n", n1, n2, n1+n2)
 }
 
-func subtract(n1 int, n2 int) int { // Já está função ela tem um retorno. Para haver algum retorno é preciso informar qual o tipo do retorno, se é int, string, boolean e etc...
+func subtract(n1 int, n2 int) int { // This function has a return value. To have a return value, it is necessary to inform the return type, whether it is int, string, boolean, etc...
 	return n1 + n2
 }
 
-func multiply(n1 int, n2 int) (resultCalc int) { // Aqui estou setando a variável 'resultCalc' no instanciamento da função.
+func multiply(n1 int, n2 int) (resultCalc int) { // Here I am setting the variable 'resultCalc' during the function instantiation.
 	resultCalc = n1 * n2
 	return resultCalc
 }
 
-func division(n1 int, n2 int) (int, int) { // Aqui eu informo que terá dois valores a serem retornados e os dois será inteiros.
+func division(n1 int, n2 int) (int, int) { // Here I inform that there will be two values to be returned and both will be integers.
 	resultCalc := n1 / n2
 	resultRest := n1 % n2
 

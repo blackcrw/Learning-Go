@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-// Tabuada com for
+// Multiplication table using for loop
 
 func main() {
 	var num int
 
-	fmt.Print("Digite um numero: ")
+	fmt.Print("Enter a number: ")
 	fmt.Scanf("%d", &num)
 
 	for i := 0; i <= 10; i++ {

@@ -44,7 +44,7 @@ type RequestJsonAPI struct {
 }
 
 func main() {
-	req, err := http.Get("https://api.github.com/users/blkzy")
+	req, err := http.Get("https://api.github.com/users/blackcrw")
 	defer req.Body.Close()
 
 	if err != nil {
